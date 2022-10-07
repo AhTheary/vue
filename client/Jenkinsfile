@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git clone frontend') {
+            steps {
+
+                git branch: 'server', url: 'https://github.com/AhTheary/vue.git'
+            }
+        }
+        stage('build frontend') {
+            steps {
+                sh 'pwd'
+                sh 'npm -v'
+                sh 'cd /var/lib/jenkins/workspace/devops/server && npm install && pwd'
+                sh 'pwd'
+            }
+        }
+ 
+        // stage('build backend') {
+        //     steps {
+        //         sh 'pwd'
+        //         sh 'npm -v'
+        //         sh 'cd /var/lib/jenkins/workspace/npm/server && npm install && pwd && npm run build '
+        //         sh 'pwd'
+        //     }
+        // }
+    }
+}
