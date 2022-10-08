@@ -10,7 +10,7 @@ app.use(cookieParser())
 
 //allow api to access any port
 app.use(cors({
-    origin: 'http://52.91.219.193:3000',
+    origin: 'http://localhost:3000',
     credentials: true,
 }))
 
@@ -26,5 +26,5 @@ app.use(router);
 require('./configs/db')();
 
 app.listen(3001, () => {
-    console.log("The server: http://52.91.219.193:3001");
+    console.log("The server: http://localhost:3001");
 })
